@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SG-JB Dental - Save on Quality Dental Care</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background-color: #fafbfc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            background: #2c5f7a;
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav__logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav__menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav__link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .nav__link:hover,
+        .nav__link.active {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c5f7a 0%, #3d7b9c 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero__title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+
+        .hero__subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .hero__cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+        }
+
+        /* Button Styles */
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn--primary {
+            background-color: #c5554a;
+            color: white;
+        }
+
+        .btn--primary:hover {
+            background-color: #a53e35;
+            transform: translateY(-2px);
+        }
+
+        .btn--secondary {
+            background-color: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+
+        .btn--secondary:hover {
+            background-color: white;
+            color: #2c5f7a;
+        }
+
+        .btn--lg {
+            padding: 16px 32px;
+            font-size: 1.1rem;
+        }
+
+        /* Trust Indicators */
+        .trust-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .trust-indicator {
+            text-align: center;
+        }
+
+        .trust-indicator__number {
+            display: block;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .trust-indicator__label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Calculator Section */
+        .calculator {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .calculator h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #2c5f7a;
+        }
+
+        .calculator p {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #6b7280;
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: #2c5f7a;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: #2c5f7a;
+        }
+
+        /* Price Comparison */
+        .results__comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .price-card {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .price-card h3 {
+            margin-bottom: 1rem;
+            color: #2c5f7a;
+        }
+
+        .price-range {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #2d3748;
+        }
+
+        .price-card--jb .price-range {
+            color: #c5554a;
+        }
+
+        .savings-highlight {
+            background: #c5554a;
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        /* Guarantee Section */
+        .guarantee-section {
+            padding: 4rem 0;
+            background: #f8f9fa;
+        }
+
+        .guarantee h2 {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #2c5f7a;
+        }
+
+        .guarantee p {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #6b7280;
+        }
+
+        .guarantee__features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .feature__icon {
+            background: #c5554a;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+        }
+
+        .feature h3 {
+            margin-bottom: 0.5rem;
+            color: #2c5f7a;
+        }
+
+        .feature p {
+            color: #6b7280;
+        }
+
+        /* FAQ Section */
+        .faq-preview {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .faq-preview h2 {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c5f7a;
+        }
+
+        .faq-preview__items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .faq-item {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .faq-item h3 {
+            margin-bottom: 1rem;
+            color: #2c5f7a;
+        }
+
+        .faq-item p {
+            margin-bottom: 1rem;
+            color: #6b7280;
+        }
+
+        .faq-item__link {
+            color: #c5554a;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .faq-item__link:hover {
+            text-decoration: underline;
+        }
+
+        /* Page Management */
+        .page {
+            display: none;
+            min-height: 400px;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        .page-header {
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c5f7a;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            color: #6b7280;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1000;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        .modal__content {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            position: relative;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        .modal__close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #6b7280;
+        }
+
+        .modal h2 {
+            margin-bottom: 1rem;
+            color: #2c5f7a;
+        }
+
+        .modal p {
+            margin-bottom: 2rem;
+            color: #6b7280;
+        }
+
+        /* Footer */
+        .footer {
+            background: #2c5f7a;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav__menu {
+                display: none;
+            }
+
+            .hero__title {
+                font-size: 2rem;
+            }
+
+            .hero__cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .results__comparison {
+                grid-template-columns: 1fr;
+            }
+
+            .trust-indicators {
+                gap: 1.5rem;
+            }
+
+            .guarantee__features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Header -->
+    <header class="header">
+        <nav class="nav container">
+            <div class="nav__brand">
+                <h1 class="nav__logo">SG-JB Dental</h1>
+            </div>
+            <ul class="nav__menu">
+                <li><a class="nav__link active" onclick="showPage('home', this)">Home</a></li>
+                <li><a class="nav__link" onclick="showPage('compare', this)">Compare Prices</a></li>
+                <li><a class="nav__link" onclick="showPage('clinics', this)">Find Clinics</a></li>
+                <li><a class="nav__link" onclick="showPage('how-it-works', this)">How It Works</a></li>
+                <li><a class="nav__link" onclick="showPage('qa', this)">Q&A</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main">
+        <!-- Home Page -->
+        <section id="home" class="page active">
+            <!-- Hero Section -->
+            <div class="hero">
+                <div class="container">
+                    <div class="hero__content">
+                        <h1 class="hero__title">Join 1,200+ Smart Savers</h1>
+                        <p class="hero__subtitle">Sign up before August 30 for Priority Clinic Matching</p>
+                        
+                        <div class="hero__cta">
+                            <button class="btn btn--primary btn--lg" onclick="openModal()">Get Early Access</button>
+                            <button class="btn btn--secondary btn--lg" onclick="scrollToCalculator()">Calculate Potential Savings</button>
+                        </div>
+
+                        <div class="trust-indicators">
+                            <div class="trust-indicator">
+                                <span class="trust-indicator__number">23/100</span>
+                                <span class="trust-indicator__label">Clinics Verified</span>
+                            </div>
+                            <div class="trust-indicator">
+                                <span class="trust-indicator__number">✓</span>
+                                <span class="trust-indicator__label">Transparent Pricing Guarantee</span>
+                            </div>
+                            <div class="trust-indicator">
+                                <span class="trust-indicator__number">AI</span>
+                                <span class="trust-indicator__label">Verified Quality</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Savings Calculator -->
+            <div class="calculator" id="calculator">
+                <div class="container">
+                    <div class="card">
+                        <h2>Calculate Your Potential Savings</h2>
+                        <p>Select your treatment to see generous discounts with our verified JB partners</p>
+                        
+                        <div class="form-group">
+                            <label class="form-label" for="treatment-select">Treatment Type</label>
+                            <select id="treatment-select" class="form-control" onchange="calculateSavings()">
+                                <option value="">Select a treatment</option>
+                                <option value="cleaning">Dental Cleaning</option>
+                                <option value="filling">Tooth Filling</option>
+                                <option value="root-canal">Root Canal</option>
+                                <option value="crown">Dental Crown</option>
+                                <option value="extraction">Tooth Extraction</option>
+                                <option value="implant">Dental Implant</option>
+                                <option value="whitening">Teeth Whitening</option>
+                                <option value="braces">Braces (Metal)</option>
+                                <option value="wisdom">Wisdom Tooth Removal</option>
+                                <option value="gum">Gum Treatment</option>
+                            </select>
+                        </div>
+                        
+                        <div class="results__comparison">
+                            <div class="price-card">
+                                <h3>Singapore Price</h3>
+                                <div class="price-range" id="sg-price">Select treatment</div>
+                            </div>
+                            <div class="price-card price-card--jb">
+                                <h3>JB Partner Price</h3>
+                                <div class="price-range" id="jb-price">Select treatment</div>
+                            </div>
+                        </div>
+                        <div class="savings-highlight" id="savings-amount">
+                            Select a treatment to see your potential savings
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value Proposition Section -->
+            <div class="guarantee-section">
+                <div class="container">
+                    <div class="guarantee">
+                        <h2>Transparent Pricing Guarantee</h2>
+                        <p>No hidden costs, no surprise charges. See all inclusive pricing upfront with our verified partner network.</p>
+                        
+                        <div class="guarantee__features">
+                            <div class="feature">
+                                <div class="feature__icon">✓</div>
+                                <div class="feature__content">
+                                    <h3>Priority Clinic Matching</h3>
+                                    <p>Join before August 30 for exclusive early access and priority booking with verified partner clinics</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature__icon">✓</div>
+                                <div class="feature__content">
+                                    <h3>AI-Verified Quality</h3>
+                                    <p>98.7% match accuracy through MDA license verification and credential analysis</p>
+                                </div>
+                            </div>
+                            <div class="feature">
+                                <div class="feature__icon">✓</div>
+                                <div class="feature__content">
+                                    <h3>24/7 Support</h3>
+                                    <p>Comprehensive assistance and traffic-aware scheduling for seamless experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Preview -->
+            <div class="faq-preview">
+                <div class="container">
+                    <h2>Common Concerns Addressed</h2>
+                    <div class="faq-preview__items">
+                        <div class="faq-item">
+                            <h3>Is Malaysian dental quality comparable to Singapore?</h3>
+                            <p>Our AI verification system ensures all partner clinics meet MDA-SDC cross-certification standards with verified credentials.</p>
+                            <a href="#qa" class="faq-item__link" onclick="showPage('qa', this)">Learn more</a>
+                        </div>
+                        <div class="faq-item">
+                            <h3>What if I need follow-up care?</h3>
+                            <p>Our platform includes guaranteed revisit scheduling with traffic-aware timing and 24/7 support coordination.</p>
+                            <a href="#qa" class="faq-item__link" onclick="showPage('qa', this)">Learn more</a>
+                        </div>
+                        <div class="faq-item">
+                            <h3>Are there communication barriers?</h3>
+                            <p>All verified clinics have English and Mandarin speaking staff certified through our verification process.</p>
+                            <a href="#qa" class="faq-item__link" onclick="showPage('qa', this)">Learn more</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compare Prices Page -->
+        <section id="compare" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Compare Dental Prices</h1>
+                    <p>Transparent pricing from verified JB partner clinics</p>
+                </div>
+                <div class="card">
+                    <h3>Price Comparison Tool</h3>
+                    <p>Full comparison features launching August 2025</p>
+                    <button class="btn btn--primary" onclick="openModal()">Get Early Access</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Find Clinics Page -->
+        <section id="clinics" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Curating the Best Clinics</h1>
+                    <p>Meet Our First Partners in August 2025</p>
+                </div>
+                <div class="card">
+                    <h3>Clinic Directory</h3>
+                    <p>23 clinics currently in final verification process</p>
+                    <button class="btn btn--primary" onclick="openModal()">Request Early Access</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Page -->
+        <section id="how-it-works" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>How It Works</h1>
+                    <p>Step-by-step process for safe, affordable dental care</p>
+                </div>
+                <div class="guarantee__features">
+                    <div class="feature">
+                        <div class="feature__icon">1</div>
+                        <div class="feature__content">
+                            <h3>AI Verification</h3>
+                            <p>Our system verifies clinic credentials through MDA license verification with 98.7% accuracy</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature__icon">2</div>
+                        <div class="feature__content">
+                            <h3>Smart Matching</h3>
+                            <p>Priority clinic matching based on your treatment needs and quality requirements</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature__icon">3</div>
+                        <div class="feature__content">
+                            <h3>Traffic-Aware Scheduling</h3>
+                            <p>Integrated scheduling using real-time traffic data with automatic rescheduling</p>
+                        </div>
+                    </div>
+                    <div class="feature">
+                        <div class="feature__icon">4</div>
+                        <div class="feature__content">
+                            <h3>24/7 Support</h3>
+                            <p>Continuous support throughout your treatment journey with emergency hotline</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Q&A Page -->
+        <section id="qa" class="page">
+            <div class="container">
+                <div class="page-header">
+                    <h1>Frequently Asked Questions</h1>
+                    <p>Addressing the top concerns of Singapore residents</p>
+                </div>
+                <div class="faq-preview__items">
+                    <div class="faq-item">
+                        <h3>Is Malaysian dental quality comparable to Singapore?</h3>
+                        <p>Our AI verification system ensures all partner clinics meet MDA-SDC cross-certification standards with verified credentials and continuing education requirements.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What if I need follow-up care?</h3>
+                        <p>Our platform includes guaranteed revisit scheduling with traffic-aware timing and 24/7 support coordination for seamless follow-up appointments.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>Are there communication barriers?</h3>
+                        <p>All verified clinics have English and Mandarin speaking staff certified through our verification process to ensure clear communication.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How do you handle payment disputes?</h3>
+                        <p>Our transparent pricing guarantee includes upfront cost disclosure and dispute resolution support through our 24/7 customer service team.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What about emergency situations?</h3>
+                        <p>We provide 24/7 emergency hotline support and have protocols in place for urgent dental situations and medical assistance.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>How do you verify clinic hygiene standards?</h3>
+                        <p>Our AI-powered verification includes hygiene scoring, sterilization protocol compliance, and regular facility inspections by certified assessors.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Email Signup Modal -->
+    <div class="modal" id="signup-modal">
+        <div class="modal__overlay" onclick="closeModal()"></div>
+        <div class="modal__content">
+            <button class="modal__close" onclick="closeModal()">&times;</button>
+            <h2>Get Priority Access</h2>
+            <p>Join before August 30 for Priority Clinic Matching and exclusive early access</p>
+            
+            <form onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" required placeholder="your.email@example.com">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number (Optional)</label>
+                    <input type="tel" class="form-control" placeholder="+65 9xxx xxxx">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Treatment Interest</label>
+                    <select class="form-control">
+                        <option value="">Select treatment (optional)</option>
+                        <option value="cleaning">Dental Cleaning</option>
+                        <option value="filling">Tooth Filling</option>
+                        <option value="root-canal">Root Canal</option>
+                        <option value="crown">Dental Crown</option>
+                        <option value="extraction">Tooth Extraction</option>
+                        <option value="implant">Dental Implant</option>
+                        <option value="whitening">Teeth Whitening</option>
+                        <option value="braces">Braces (Metal)</option>
+                        <option value="wisdom">Wisdom Tooth Removal</option>
+                        <option value="gum">Gum Treatment</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn--primary" style="width: 100%;">Join Priority Access List</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 SG-JB Dental Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Treatment pricing data
+        const treatments = {
+            cleaning: { sg: '$120-180', jb: '$40-60', savings: '$80-120' },
+            filling: { sg: '$150-250', jb: '$50-80', savings: '$100-170' },
+            'root-canal': { sg: '$1200-1800', jb: '$400-600', savings: '$800-1200' },
+            crown: { sg: '$800-1200', jb: '$280-400', savings: '$520-800' },
+            extraction: { sg: '$180-300', jb: '$60-100', savings: '$120-200' },
+            implant: { sg: '$3500-5000', jb: '$1200-1800', savings: '$2300-3200' },
+            whitening: { sg: '$600-900', jb: '$200-300', savings: '$400-600' },
+            braces: { sg: '$4000-6000', jb: '$1500-2500', savings: '$2500-3500' },
+            wisdom: { sg: '$400-800', jb: '$120-250', savings: '$280-550' },
+            gum: { sg: '$800-1500', jb: '$250-450', savings: '$550-1050' }
+        };
+
+        // Page navigation - FIXED
+        function showPage(pageId, clickedElement) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Update nav links - FIXED
+            document.querySelectorAll('.nav__link').forEach(link => {
+                link.classList.remove('active');
+            });
+            clickedElement.classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Calculator functionality
+        function calculateSavings() {
+            const treatment = document.getElementById('treatment-select').value;
+            const sgPrice = document.getElementById('sg-price');
+            const jbPrice = document.getElementById('jb-price');
+            const savings = document.getElementById('savings-amount');
+            
+            if (treatment && treatments[treatment]) {
+                sgPrice.textContent = treatments[treatment].sg;
+                jbPrice.textContent = treatments[treatment].jb;
+                savings.textContent = `Potential Savings: ${treatments[treatment].savings}`;
+            } else {
+                sgPrice.textContent = 'Select treatment';
+                jbPrice.textContent = 'Select treatment';
+                savings.textContent = 'Select a treatment to see your potential savings';
+            }
+        }
+
+        // Modal functionality
+        function openModal() {
+            document.getElementById('signup-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('signup-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Form submission
+        function submitForm(event) {
+            event.preventDefault();
+            alert('Thank you for joining our priority access list! We\'ll contact you soon with exclusive early access details.');
+            closeModal();
+        }
+
+        // Smooth scroll to calculator
+        function scrollToCalculator() {
+            document.getElementById('calculator').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('SG-JB Dental Platform loaded successfully');
+        });
+    </script>
+</body>
+</html>
